@@ -56,6 +56,9 @@
             <label class="form-label">Jenis Produk</label>
             <select class="form-select">
               <option disabled selected>Pilih Produk</option>
+              @foreach($jenis ?? [] as $item)
+                <option value="{{ strtolower($item) }}">{{ $item }}</option>
+              @endforeach
             </select>
           </div>
           <div class="col-8">

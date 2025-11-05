@@ -28,5 +28,10 @@ Route::get('/produk', function () {
 });
 
 Route::get('/tambah', function () {
-    return view('tambah');
+    $jenis = [
+        'Alat Tulis',
+        'Elektronik',
+        'Sembako',
+    ];
+    return view('tambah', compact('jenis'));
 });
