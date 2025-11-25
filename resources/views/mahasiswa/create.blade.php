@@ -41,33 +41,76 @@
 </nav>
 
 <div class="container" style="margin-left: 30px">
-    <h1>Ini adalah Halaman Tambah Mahasiswa</h1>
- <div class="container">
-        <div class="row">
-            <div class="col-sm-12">
-             <h3>Form Tambah Mahasiswa</h3>   
-             <form action="">
-                <label for="">NIM</label>  
-               <input type="text" id="nim" class="form-control">
-               <label for="">Nama Mahasiswa</label>
-               <input type="text" id="nama" class="form-control">
-             </form>
+    <h1>Halaman Tambah Mahasiswa</h1>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <h3>Form Tambah Mahasiswa</h3>
+
+            @if ($errors->any())
+            <div class="pt-3">
+              <div class="alert alert-danger">
+                <ul>
+                  @foreach ($errors->all() as $item)
+                      <li>{{ $item }}</li>
+                  @endforeach
+                </ul>
+              </div>
             </div>
-            <div class="row g-2">
-            <div class="col-6">
-              <button class="btn btn-primary w-100" id="simpan">Simpan</button>
-            </div>
-            <div class="col-6">
-              <button class="btn btn-secondary w-100" id="kembali">Kembali</button>
-             </div>
-</div>
+            @endif
+
+
+            <form action="/mahasiswa" method="POST">
+              @csrf
+                <div class="row g-3">
+                    <div class="col-sm-4">
+                        <label>NPM</label>
+                        <input type="number" name="npm" class="form-control" placeholder="Input NPM" value="{{ Session::get('npm') }}">
+                    </div>
+
+                    <div class="col-sm-4">
+                        <label>Nama Mahasiswa</label>
+                        <input type="text" name="nama_mahasiswa" class="form-control" placeholder="Input Nama" value="{{Session::get('nama_mahasiswa') }}">
+                    </div>
+
+                    <div class="col-sm-4">
+                        <label>Jenis Kelamin</label>
+                        <select name="jk" class="form-select">
+                            <option value="">-- Pilih --</option>
+                            <option value="L">L</option>
+                            <option value="P">P</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row g-3 mt-1">
+                    <div class="col-sm-4">
+                        <label>Tanggal Lahir</label>
+                        <input type="date" name="tgl_lahir" class="form-control" value="{{ Session::get('tgl_lahir') }}">
+                    </div>
+
+                    <div class="col-sm-5">
+                        <label>Alamat</label>
+                        <input type="text" name="alamat" class="form-control" placeholder="Input Alamat" value="{{ Session::get('alamat') }}">
+                    </div>
+
+                    <div class="col-sm-3 d-flex align-items-end">
+                        <div class="w-100 d-flex gap-2">
+                            <button class="btn btn-primary w-50" type="submit">Simpan</button>
+                            <a href="/mahasiswa" class="btn btn-secondary w-50">Kembali</a>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
 
         </div>
-     </div>
+    </div>
 </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-</body>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
 <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 
 <script>
