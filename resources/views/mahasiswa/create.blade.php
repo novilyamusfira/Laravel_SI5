@@ -41,33 +41,27 @@
 </nav>
 
 <div class="container" style="margin-left: 30px">
-    <h1>Ini adalah Halaman Mahasiswa</h1>
+    <h1>Ini adalah Halaman Tambah Mahasiswa</h1>
  <div class="container">
         <div class="row">
-            <div class="col-8">
-                <h3>Data Mahasiswa</h3>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Nomor</th>
-                            <th>NIM</th>
-                            <th>Nama</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
-            </div>
-            <div class="col-4">
+            <div class="col-sm-12">
              <h3>Form Tambah Mahasiswa</h3>   
              <form action="">
                 <label for="">NIM</label>  
                <input type="text" id="nim" class="form-control">
                <label for="">Nama Mahasiswa</label>
                <input type="text" id="nama" class="form-control">
-               <button class="w-100 btn btn-primary" id="simpan">Simpan</button>
              </form>
             </div>
+            <div class="row g-2">
+            <div class="col-6">
+              <button class="btn btn-primary w-100" id="simpan">Simpan</button>
+            </div>
+            <div class="col-6">
+              <button class="btn btn-secondary w-100" id="kembali">Kembali</button>
+             </div>
+</div>
+
         </div>
      </div>
 </div>
